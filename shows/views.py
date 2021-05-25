@@ -14,6 +14,9 @@ def new(request):
 def create(request):
     #print(request.POST)
     #Create the show
+    errorsFromValidator = Show.objects.newShow_validator(request.POST)
+    print("imprime error del validador")
+    print(errorsFromValidator)
     Show.objects.create(
         title = request.POST['title'],
         network = request.POST['network'],
